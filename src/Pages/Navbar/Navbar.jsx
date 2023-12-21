@@ -1,38 +1,34 @@
 // import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-// import { AuthContext } from "../Providers/AuthProvider";
-// import swal from "sweetalert";
-// import userPicture from "../../assets/images/userlogo.png";
+import swal from "sweetalert";
+import UseAuth from "../../Components/Hooks/UseAuth";
+import userPicture from "../../assets/Image/user.png";
+import { IoStatsChart } from "react-icons/io5";
 
 const Navbar = () => {
   // destructing
-  //   const { user, logout } = useContext(AuthContext);
+
+  const { user, logout } = UseAuth();
   // ==========================For Logging out =================================================
-  //   const handleLogout = () => {
-  //     logout()
-  //       .then(() => {
-  //         swal({
-  //           text: "Successfully Registered",
-  //         });
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //         swal({
-  //           text: ("Have some issues", error.message),
-  //         });
-  //       });
-  //   };
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        swal({
+          text: "Successfully Registered",
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        swal({
+          text: ("Have some issues", error.message),
+        });
+      });
+  };
   // =================================================================
   const links = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/rooms">Rooms</NavLink>
-      </li>
-      <li>
-        <NavLink to="/myBookings">My Bookings</NavLink>
       </li>
       <li>
         <NavLink to="/about">About Us</NavLink>
@@ -41,8 +37,16 @@ const Navbar = () => {
         <NavLink to="/contactus">Contact Us</NavLink>
       </li>
 
-      {/* {user ? (
+      {user ? (
         <>
+          <div>
+            <li>
+              <NavLink to="/dashboard">
+                <IoStatsChart className="text-2xl text-cyan-700"></IoStatsChart>
+                Dash-Board
+              </NavLink>
+            </li>
+          </div>
           <div className="flex items-center mr-2">
             <div>
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -51,11 +55,16 @@ const Navbar = () => {
                 </div>
               </label>
             </div>
+
             <div className="hidden lg:block">
               <span>{user.displayName || user.email}</span>
             </div>
           </div>
-          <button onClick={handleLogout} className="btn btn-ghost bg-cyan-100">
+
+          <button
+            onClick={handleLogout}
+            className="btn btn-ghost bg-gradient-to-r from-gray-500 to-cyan-500 text-white font-bold"
+          >
             LOG OUT
           </button>
         </>
@@ -63,9 +72,10 @@ const Navbar = () => {
         <Link to="/login">
           <button className="btn font-bold">LOGIN HERE</button>
         </Link>
-      )} */}
+      )}
     </>
   );
+
   //   =================================================================
   return (
     <section className="relative">
@@ -119,7 +129,7 @@ const Navbar = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-50 min-h-full bg-gradient-to-br from-yellow-500 to-green-500	 text-white">
+          <ul className="menu p-4 w-50 min-h-full bg-gradient-to-r from-gray-500 to-cyan-500	 text-white">
             {/* Sidebar content here */}
             {links}
           </ul>

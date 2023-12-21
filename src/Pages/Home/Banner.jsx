@@ -1,6 +1,10 @@
+import { Link } from "react-router-dom";
 import banner from "../../assets/Image/pic2.jpg";
+import UseAuth from "../../Components/Hooks/UseAuth";
 
 const Banner = () => {
+  const { user } = UseAuth();
+
   return (
     <div className="relative bg-cover bg-center h-80 md:h-96 lg:h-screen flex items-center justify-center z-0">
       <img
@@ -19,11 +23,17 @@ const Banner = () => {
             efficiency. Empower your day for success and boost productivity
             effortlessly.
           </p>
-          <div className="px-2">
-            <button className="bg-gray-800 mt-4 text-white px-8 py-3 rounded-md shadow-lg hover:bg-white hover:text-black transition duration-300">
-              Let's Explore
-            </button>
-          </div>
+          {user ? (
+            <p className="text-white"></p>
+          ) : (
+            <Link to="/login">
+              <div className="px-2">
+                <button className="bg-gray-800 mt-4 text-white px-8 py-3 rounded-md shadow-lg hover:bg-white hover:text-black transition duration-300">
+                  Let's Explore
+                </button>
+              </div>
+            </Link>
+          )}
         </div>
       </div>
     </div>
