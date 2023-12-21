@@ -1,4 +1,5 @@
 // import { Link, useLocation, useNavigate } from "react-router-dom";
+import UseAuth from "../../Components/Hooks/UseAuth";
 import img from "../../assets/Image/login.jpg";
 
 import { Link } from "react-router-dom";
@@ -13,7 +14,7 @@ const Login = () => {
   //   const location = useLocation();
   //   const navigate = useNavigate();
   //   //   =================================================================
-  //   const { signInUser, signInWithGoogle } = useContext(AuthContext);
+  const { signInUser, signInWithGoogle } = UseAuth();
 
   // =====================For getting the value from user=========================================================
   //   const handleLogin = (event) => {
