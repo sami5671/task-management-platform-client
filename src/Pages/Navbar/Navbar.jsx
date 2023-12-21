@@ -55,7 +55,6 @@ const Navbar = () => {
                 </div>
               </label>
             </div>
-
             <div className="hidden lg:block">
               <span>{user.displayName || user.email}</span>
             </div>
