@@ -29,15 +29,15 @@ const Dashboard = () => {
                 <div>Email: {user.email}</div>
               </li>
               <li>
-                <NavLink to="/createNewTask">
-                  <MdAddTask className="text-2xl font-bold"></MdAddTask> Create
-                  New Task
+                <NavLink to="/dashboard">
+                  <BsBuildingFillDash className="text-2xl"></BsBuildingFillDash>{" "}
+                  To-Do-List
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/toDoList">
-                  <BsBuildingFillDash className="text-2xl"></BsBuildingFillDash>{" "}
-                  To-Do-List
+                <NavLink to="/createNewTask">
+                  <MdAddTask className="text-2xl font-bold"></MdAddTask> Create
+                  New Task
                 </NavLink>
               </li>
             </>
