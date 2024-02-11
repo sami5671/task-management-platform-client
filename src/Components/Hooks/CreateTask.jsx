@@ -33,9 +33,8 @@ const CreateTask = () => {
     console.log(AddTasks);
     // Add product data to mongodb
     const res = await axiosPublic.post("/AllUserTasks", AddTasks);
-
     if (res.data.insertedId) {
-      Swal.fire("The Product has been added successfully");
+      Swal.fire("The Task has been added Successfully");
       navigate("/dashboard/myProduct");
       navigate("/dashboard");
     }

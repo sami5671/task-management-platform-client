@@ -43,7 +43,7 @@ const Register = () => {
         swal({
           text: "Successfully Registered",
         });
-        navigate("/");
+        navigate("/dashboard");
       })
       .catch((error) => {
         console.log(error.message);

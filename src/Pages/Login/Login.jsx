@@ -31,17 +31,11 @@ const Login = () => {
         const user = { email };
         swal({
           text: "Successfully Login!!!",
-        })
-          // get access token
-          // axios
-          //   .post("https://mermaid-pearl-server.vercel.app/jwt", user, {
-          //     withCredentials: true,
-          //   })
-          .then((res) => {
-            console.log(res.data);
-            // redirect to to the page where the use had clicked(wanted to watch details)
-            navigate(location?.state ? location.state : "/");
-          });
+        }).then((res) => {
+          console.log(res.data);
+          // redirect to to the page where the use had clicked(wanted to watch details)
+          navigate("/dashboard");
+        });
       })
       .catch((error) => {
         console.log(error.message);
@@ -59,7 +53,7 @@ const Login = () => {
         swal({
           text: "Successfully Login!!!",
         });
-        navigate(location?.state ? location.state : "/");
+        navigate("/dashboard");
       })
       .catch((error) => {
         console.error(error);
